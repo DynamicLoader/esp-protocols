@@ -42,4 +42,18 @@ menu "Example Configuration"
         help
             Baudrate used by the PPP over UART
 
+    config EXAMPLE_WIFI_AP_MODE
+        bool "WiFi AP Mode"
+        default y
+        help
+            Enable AP Mode or STA Mode. If checked, the example will run in AP mode. This is useful when you do not want to setup a PPPoS server, but just want to use this as AP. 
+
+    config EXAMPLE_WIFI_MAX_STA_CONN
+        int "Max Station Connection"
+        depends on EXAMPLE_WIFI_AP_MODE
+        default 4
+        range 1 4
+        help
+            Max number of stations that can connect to ESP32 AP.
+
 endmenu
